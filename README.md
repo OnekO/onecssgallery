@@ -1,6 +1,6 @@
 # onecssgallery
 Pure CSS image Gallery
-## [SimpleDemo] - DEMO!
+### [DEMO]!
 ToDo:
 
 * Add different transitions
@@ -8,4 +8,4 @@ ToDo:
 * Do it skinnable
 * Any suggestion?
 
-  [SimpleDemo]: <http://oneko.github.io/onecssgallery/demo/simple.html>
+  [DEMO]: <http://oneko.github.io/onecssgallery/demo/simple.html>
