@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/icon?family=Roboto');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ccc;
+}
+
+.gallery {
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.gallery input[name='switch'] {
+    display: none;
+}
+
+.gallery > div {
+    transition: all 0.5s;
+}
+
+.gallery .thumb {
+    box-sizing: border-box;
+    width: 20%;
+    margin: 5% 0 0 5%;
+    float: left;
+    transition: opacity 0.5s;
+    cursor: pointer;
+    opacity: 0.6;
+    height: 0;
+    padding-bottom: 20%;
+    position: relative;
+}
+
+.thumb img,
+.gallery > div img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border: 3px solid #999;
+}
+
+.thumb img {
+    margin: auto;
+    display: block;
+    width: 100%;
+}
+
+.gallery div.content img {
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.75);
+}
+
+.thumb.first-row {
+    margin-top: calc(100% + 35px);
+}
+
+.gallery input[name='switch']:checked + .thumb {
+    border-color: #666;
+    opacity: 1;
+}
+
+.gallery div.content {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(1.1);
+    background-color: rgba(139, 139, 139, 0.33);
+    position: relative;
+}
+
+.gallery input[name='switch']:checked + .thumb + div.content {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.description {
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 260px;
+    z-index: 6;
+}
+
+.description input {
+    visibility: hidden;
+}
+
+.description label {
+    font-family: 'Material Icons', sans-serif;
+    position: relative;
+    top: 3px;
+    left: -14px;
+    width: 40px;
+    height: 27px;
+    padding-top: 7px;
+    background-color: #FFFFF0;
+    display: inline-block;
+    text-align: center;
+    border-bottom-right-radius: 15px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity .2s;
+    z-index: 5;
+    color: rgb(20, 20, 20);
+}
+
+.description input[type=checkbox]:checked ~ .description-text,
+.gallery .content:hover .description label {
+    opacity: .7;
+}
+
+.description input[type=checkbox]:checked ~ label {
+    background-color: transparent;
+}
+
+.description input[type=checkbox] ~ label .material-icons:after {
+    content: 'expand_more';
+}
+
+.description input[type=checkbox]:checked ~ label .material-icons:after {
+    content: 'expand_less';
+}
+
+.description .description-text {
+    background-color: #FFFFF0;
+    padding: 25px 15px 15px 45px;
+    position: relative;
+    top: -31px;
+    left: 3px;
+    z-index: 4;
+    opacity: 0;
+    transition: opacity .2s;
+    color: #000;
+    border-bottom-right-radius: 15px;
+}
+
+label.next, label.prev {
+    visibility: hidden;
+    position: absolute;
+    margin-top: calc(50% - (30px + 5%) / 2);
+    width: 5%;
+    height: 0;
+    padding: 6px 6px calc(6px + 5%) 6px;
+    cursor: pointer;
+    z-index: 7;
+    background-color: #FFFFF0;
+    opacity: .4;
+    border-radius: 50px;
+    box-shadow: 0 0 30px 5px #FFFFF0
+}
+
+.gallery input[name='switch']:checked + .thumb + div.content + .controls label.next,
+.gallery input[name='switch']:checked + .thumb + div.content + .controls label.prev {
+    visibility: visible;
+}
+
+.gallery .content:hover + .controls label.next, label.next:hover,
+.gallery .content:hover + .controls label.prev, label.prev:hover {
+    opacity: .7;
+}
+
+label.prev {
+    left: 10px;
+}
+
+label.next {
+    right: 10px;
+}
+
+label.next + input, label.prev + input {
+    display: none;
+}
+
+label.next i, label.prev i {
+    font-size: 1.9vw;
+}
+
+label.next i:after {
+    content: 'skip_next'
+}
+
+label.prev i:after {
+    content: 'skip_previous'
+}
